@@ -22,6 +22,8 @@ class RackCorsRoda < Roda
   plugin :hash_routes
   plugin :head
   plugin :request_headers
+  plugin :json, content_type: 'text/plain'
+  plugin :json_parser
 
   route do |r|
 
@@ -33,7 +35,7 @@ class RackCorsRoda < Roda
 
   end
 
-  hash_branch(:pizza) do |r|
+  hash_branch('pizza') do |r|
     r.post do
 
       # POST /pizza/toppings
