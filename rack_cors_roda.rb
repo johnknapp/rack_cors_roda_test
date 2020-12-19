@@ -8,7 +8,7 @@ class RackCorsRoda < Roda
   use Rack::Cors do
     allowed_methods = %i[get post put delete options head]
     allow do
-      origins 'https://rack-cors-roda.herokuapp.com/'
+      origins 'https://rack-cors-roda.herokuapp.com'
       resource '*', headers: :any, methods: allowed_methods
     end
   end

@@ -8,7 +8,7 @@ _**This minimal app replicates the problem observed. It replicates the relevant 
 
 ```
 curl --head \
-  -H 'Origin: https://random-sample.herokuapp.com' \
+  -H 'Origin: https://rack-cors-roda.herokuapp.com' \
   -H 'Access-Control-Request-Method: POST' \
   -H 'Access-Control-Request-Headers: X-Requested-With' \
   -X OPTIONS \
