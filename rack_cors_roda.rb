@@ -5,10 +5,10 @@ require 'rack/cors'
 
 class RackCorsRoda < Roda
 
-  use Rack::Cors do
+  use Rack::Cors, debug: true, logger: Logger.new(STDOUT) do
     allowed_methods = %i[get post put delete options head]
     allow do
-      origins 'https://rack-cors-roda.herokuapp.com'
+      origins 'https://my-frontend-app.netlify.com'
       resource '*', headers: :any, methods: allowed_methods
     end
   end
@@ -18,7 +18,7 @@ class RackCorsRoda < Roda
     'X-Content-Type-Options'=>'nosniff',
     'X-Frame-Options'=>'deny', 
     'X-XSS-Protection'=>'1; mode=block'
-    plugin :halt
+  plugin :halt
   plugin :hash_routes
   plugin :head
   plugin :request_headers
@@ -28,7 +28,7 @@ class RackCorsRoda < Roda
   route do |r|
 
     r.root do
-      'hello rack-cors + roda test app'
+      'hello rack-cors + roda app'
     end
 
     r.hash_routes
